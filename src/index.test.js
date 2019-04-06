@@ -39,4 +39,15 @@ describe('OnLeaveIntent', () => {
 
     expect(callback).not.toHaveBeenCalled()
   })
+
+  it('should run the callback function only once', () => {
+    // advance 1s
+    jest.advanceTimersByTime(delay)
+
+    // simulate the user leaving the page
+    document.dispatchEvent(new MouseEvent('mouseout', { relatedTarget: null }))
+    document.dispatchEvent(new MouseEvent('mouseout', { relatedTarget: null }))
+
+    expect(callback).toHaveBeenCalledTimes(1)
+  })
 })
