@@ -7,6 +7,7 @@ describe('OnLeaveIntent', () => {
 
   it('should call a callback function if user go out of the screen', () => {
     const callback = jest.fn()
+    const onLeaveIntent = new OnLeaveIntent(callback)
 
     // simulate the user leaving the page
     document.dispatchEvent(new MouseEvent('mouseout', { relatedTarget: null }))
