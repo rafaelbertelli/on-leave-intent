@@ -10,7 +10,8 @@
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "build": "webpack"
+    "build": "webpack",
+    "start": "webpack-dev-server"
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",

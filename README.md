@@ -12,3 +12,14 @@ npm install
 ```terminal
 npm run test:watch
 ```
+
+### Create a production version
+```terminal
+npm run build
+```
+
+### Run this application on development mode
+```terminal
+npm run build
+npm run start
+```
