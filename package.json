@@ -9,7 +9,8 @@
   "private": false,
   "scripts": {
     "test": "jest",
-    "test:watch": "jest --watchAll"
+    "test:watch": "jest --watchAll",
+    "build": "webpack"
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",
