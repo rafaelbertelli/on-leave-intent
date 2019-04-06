@@ -11,26 +11,32 @@ describe('OnLeaveIntent', () => {
     onLeaveIntent = new OnLeaveIntent(callback, delay)
   })
 
-  it('should call the callback function if user go out of the screen', () => {
+  it('should run the callback function if user goes out of the screen', () => {
     // advance 1s
     jest.advanceTimersByTime(delay)
+
     // simulate the user leaving the page
     document.dispatchEvent(new MouseEvent('mouseout', { relatedTarget: null }))
+
     expect(callback).toHaveBeenCalled()
   })
 
-  it('should not call the callback function if user stills on the screen', () => {
+  it('should not run the callback function if user stills on the screen', () => {
     jest.advanceTimersByTime(delay)
+
     document.dispatchEvent(
       new MouseEvent('mouseout', { relatedTarget: new EventTarget() })
     )
+
     expect(callback).not.toHaveBeenCalled()
   })
 
-  it('should not call the callback function before the delay', () => {
+  it('should not run the callback function before the delay', () => {
     // advance half delay
     jest.advanceTimersByTime(delay / 2)
+
     document.dispatchEvent(new MouseEvent('mouseout', { relatedTarget: null }))
+
     expect(callback).not.toHaveBeenCalled()
   })
 })

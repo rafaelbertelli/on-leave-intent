@@ -1,17 +1,18 @@
 class OnLeaveIntent {
-  constructor(callback) {
+  constructor(callback, delay) {
     this.callback = callback
+    this.delay = delay
 
     this.init()
   }
 
   init = () => {
-    this.handleMouseOut()
+    window.setTimeout(this.handleMouseOut, this.delay)
   }
 
   checkOutOfBounds = event => event.relatedTarget === null && this.callback()
 
-  handleMouseOut() {
+  handleMouseOut = () => {
     document.addEventListener('mouseout', this.checkOutOfBounds)
   }
 }
